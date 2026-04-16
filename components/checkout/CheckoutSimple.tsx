@@ -299,7 +299,7 @@ export default function CheckoutSimple({ sidebarVariant = "v11" }: { sidebarVari
           <ConfettiCanvas active={completed} />
 
           {/* Progress bar row: [back (mobile)] [progress] [close] */}
-          <div className="absolute left-0 right-0 flex items-center gap-[12px] px-[16px] pb-[32px] z-10" style={{ top: "40px" }}>
+          <div className="absolute left-0 right-0 flex items-center gap-[12px] px-0 lg:px-[16px] pb-[32px] z-10" style={{ top: "40px" }}>
             {/* Back icon — mobile only */}
             {stepIdx > 0 && !completed ? (
               <button onClick={goBack} className="flex lg:hidden items-center justify-center shrink-0"

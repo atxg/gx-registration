@@ -731,7 +731,7 @@ export default function CheckoutV3({
         </div>
         <div className="relative z-10 w-full max-w-[1000px] px-[16px] lg:px-[40px]">
           <div className="relative flex flex-col lg:flex-row items-stretch lg:items-start lg:justify-between w-full lg:h-[720px]" style={{ minHeight: "450px", padding: "32px 0 16px" }}>
-            <div className="absolute left-0 right-0 flex items-center gap-[12px] px-[16px] pb-[32px] z-10" style={{ top: "40px" }}>
+            <div className="absolute left-0 right-0 flex items-center gap-[12px] px-0 lg:px-[16px] pb-[32px] z-10" style={{ top: "40px" }}>
               {/* Back icon — mobile only */}
               {!isStatic && stepIdx > 0 && !completed ? (
                 <button onClick={goBack} className="flex lg:hidden items-center justify-center shrink-0"
