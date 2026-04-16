@@ -730,7 +730,7 @@ export default function CheckoutV3({
           <div className="absolute bottom-0 left-0 right-0 h-[180px]" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0), black)" }} />
         </div>
         <div className="relative z-10 w-full max-w-[1000px] px-[16px] lg:px-[40px]">
-          <div className="relative flex flex-col lg:flex-row items-stretch lg:items-start lg:justify-between w-full lg:h-[720px]" style={{ minHeight: "450px", padding: "32px 0 16px" }}>
+          <div className="relative flex flex-col lg:flex-row items-stretch lg:items-start lg:justify-between w-full lg:h-[720px] pt-[32px] pb-[16px] px-0 md:px-[16px]" style={{ minHeight: "450px" }}>
             <div className="absolute left-0 right-0 flex items-center gap-[12px] px-0 md:px-[16px] pb-[32px] z-10" style={{ top: "40px" }}>
               {/* Back icon — mobile only */}
               {!isStatic && stepIdx > 0 && !completed ? (

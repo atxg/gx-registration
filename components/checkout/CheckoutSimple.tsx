@@ -293,8 +293,8 @@ export default function CheckoutSimple({ sidebarVariant = "v11" }: { sidebarVari
       </div>
 
       <div className="relative z-10 w-full max-w-[1000px] px-[16px] lg:px-[40px]">
-        <div className="relative flex flex-col lg:flex-row items-stretch lg:items-start lg:justify-between w-full lg:overflow-hidden lg:h-[720px]"
-          style={{ minHeight: "450px", padding: "32px 0 16px" }}>
+        <div className="relative flex flex-col lg:flex-row items-stretch lg:items-start lg:justify-between w-full lg:overflow-hidden lg:h-[720px] pt-[32px] pb-[16px] px-0 md:px-[16px]"
+          style={{ minHeight: "450px" }}>
 
           <ConfettiCanvas active={completed} />
 
