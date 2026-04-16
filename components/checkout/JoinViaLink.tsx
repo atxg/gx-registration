@@ -237,11 +237,19 @@ export default function JoinViaLink({ code }: { code: string; sidebarVariant?: s
           style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0), black)" }} />
       </div>
 
-      <div className="relative z-10 w-full" style={{ padding: "32px 56px 40px", maxWidth: "640px" }}>
+      <div className="relative z-10 w-full px-[16px] lg:px-[56px] pt-[32px] pb-[40px]" style={{ maxWidth: "640px" }}>
         <ConfettiCanvas active={completed} />
 
-        {/* Progress bar + close */}
-        <div className="flex items-center gap-[12px] mb-[56px]">
+        {/* Progress bar row: [back (mobile)] [progress] [close] */}
+        <div className="flex items-center gap-[12px] mb-[40px] lg:mb-[56px]">
+          {/* Back icon — mobile only */}
+          {stepIdx > 0 && !completed ? (
+            <button onClick={goBack} className="flex lg:hidden items-center justify-center shrink-0"
+              style={{ width: "28px", height: "28px", borderRadius: "50%", background: "rgba(255,255,255,0.08)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.1)", border: "none", cursor: "pointer" }}
+              aria-label="Back">
+              <ChevronLeft className="size-[14px] text-white" />
+            </button>
+          ) : null}
           <div className="relative h-[4px] flex-1 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
             <div className="absolute inset-y-0 left-0 rounded-full bg-white"
               style={{ width: `${completed ? 100 : progress}%`, transition: `width 0.4s ${EASE_OUT_QUINT}` }} />
@@ -260,10 +268,10 @@ export default function JoinViaLink({ code }: { code: string; sidebarVariant?: s
         <div className="flex flex-col items-start">
           <div className="flex flex-col w-full">
 
-              {/* Back button */}
+              {/* Back button — desktop only (mobile uses icon in progress bar row) */}
               {stepIdx > 0 && !completed && (
                 <button onClick={goBack}
-                  className="flex items-center gap-1 mb-6 text-[12px] text-white/60 hover:text-white transition-colors"
+                  className="hidden lg:flex items-center gap-1 mb-6 text-[12px] text-white/60 hover:text-white transition-colors"
                   style={{ fontFamily: monoFont, minHeight: "40px" }}>
                   <ChevronLeft size={14} />
                   <span>BACK</span>
@@ -354,8 +362,7 @@ export default function JoinViaLink({ code }: { code: string; sidebarVariant?: s
 
               {/* Bottom nav */}
               {!completed && (
-                <div className="flex items-center gap-[12px] py-[32px] w-full sticky bottom-0"
-                  style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 30%)" }}>
+                <div className="flex items-center py-[24px] lg:py-[32px] w-full sticky bottom-0 bg-transparent lg:bg-gradient-to-b lg:from-transparent lg:to-black">
                   <button onClick={() => canContinue && goForward()}
                     disabled={!canContinue}
                     className="press-scale flex items-center justify-center w-full py-[12px] rounded-[10px]"

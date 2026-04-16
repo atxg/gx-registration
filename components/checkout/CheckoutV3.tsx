@@ -729,9 +729,17 @@ export default function CheckoutV3({
           <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.65)" }} />
           <div className="absolute bottom-0 left-0 right-0 h-[180px]" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0), black)" }} />
         </div>
-        <div className="relative z-10 w-full max-w-[1000px] px-[40px]">
-          <div className="relative flex items-start justify-between w-full" style={{ minHeight: "450px", height: "720px", padding: "32px 16px 16px" }}>
+        <div className="relative z-10 w-full max-w-[1000px] px-[16px] lg:px-[40px]">
+          <div className="relative flex flex-col lg:flex-row items-stretch lg:items-start lg:justify-between w-full lg:h-[720px]" style={{ minHeight: "450px", padding: "32px 0 16px" }}>
             <div className="absolute left-0 right-0 flex items-center gap-[12px] px-[16px] pb-[32px] z-10" style={{ top: "40px" }}>
+              {/* Back icon — mobile only */}
+              {!isStatic && stepIdx > 0 && !completed ? (
+                <button onClick={goBack} className="flex lg:hidden items-center justify-center shrink-0"
+                  style={{ width: "28px", height: "28px", borderRadius: "50%", background: "rgba(255,255,255,0.08)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.1)", border: "none", cursor: "pointer" }}
+                  aria-label="Back">
+                  <ChevronLeft className="size-[14px] text-white" />
+                </button>
+              ) : null}
               <div className="relative h-[4px] flex-1 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
                 <div className="absolute inset-y-0 left-0 rounded-full bg-white" style={{ width: `${isStatic ? 100 : completed ? 100 : progress}%`, transition: `width 0.4s ${EASE_OUT_QUINT}` }} />
               </div>
@@ -739,24 +747,24 @@ export default function CheckoutV3({
                 <span className="flex items-center justify-center size-[28px] rounded-full" style={{ background: "rgba(255,255,255,0.08)", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.1)" }}><X className="size-[14px] text-white" /></span>
               </Link>
             </div>
-            <SidebarSwitch variant={sidebarVariant} countdown={countdown} memberCount={memberCount} className="mt-[80px]" />
-            <div className="flex flex-col items-start shrink-0 overflow-auto pt-[80px] px-[8px]" style={{ width: "493px", height: "680px" }}>
+            <SidebarSwitch variant={sidebarVariant} countdown={countdown} memberCount={memberCount} className="hidden lg:block mt-[80px]" />
+            <div className="flex flex-col items-start shrink-0 lg:overflow-auto pt-[80px] px-0 lg:px-[8px] w-full lg:w-[493px] lg:h-[680px]">
               <div className="flex flex-col w-full h-full">
                 {!isStatic && stepIdx > 0 && !completed && currentStep !== "otp" && (
-                  <button onClick={goBack} className="flex items-center gap-1 mb-6 text-[12px] text-white/60 hover:text-white transition-colors"
+                  <button onClick={goBack} className="hidden lg:flex items-center gap-1 mb-6 text-[12px] text-white/60 hover:text-white transition-colors"
                     style={{ fontFamily: monoFont, minHeight: "40px", background: "none", border: "none", cursor: "pointer" }}>
                     <ChevronLeft size={14} /><span>BACK</span>
                   </button>
                 )}
                 {currentStep === "otp" && !isStatic && (
-                  <button onClick={goBack} className="flex items-center gap-1 mb-6 text-[12px] text-white/60 hover:text-white transition-colors"
+                  <button onClick={goBack} className="hidden lg:flex items-center gap-1 mb-6 text-[12px] text-white/60 hover:text-white transition-colors"
                     style={{ fontFamily: monoFont, minHeight: "40px", background: "none", border: "none", cursor: "pointer" }}>
                     <ChevronLeft size={14} /><span>CHANGE NUMBER</span>
                   </button>
                 )}
                 {content}
                 {!isStatic && !completed && !(currentStep === "type" && !typeStepRevisited) && (
-                  <div className="flex items-center gap-[12px] py-[32px] w-full sticky bottom-0" style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 30%)" }}>
+                  <div className="flex items-center py-[24px] lg:py-[32px] w-full sticky bottom-0 bg-transparent lg:bg-gradient-to-b lg:from-transparent lg:to-black">
                     <button onClick={() => canContinue && goForward()} disabled={!canContinue}
                       className="press-scale flex items-center justify-center w-full py-[12px] rounded-[10px]"
                       style={{ ...ctaStyle(canContinue), transition: "all 0.2s ease" }}>
