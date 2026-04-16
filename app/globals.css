@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg-base: #060606;
+    --bg-card: rgba(255, 255, 255, 0.05);
+    --bg-card-dark: #1d1d1d;
+    --bg-card-darker: #121212;
+    --border-card: rgba(113, 116, 121, 0.25);
+    --border-card-strong: rgba(255, 255, 255, 0.22);
+    --color-blue: #0064ff;
+    --text-primary: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --text-faint: #969ba5;
+    --text-body: #dce2ec;
+    --text-secondary: #8e8e8e;
+    --accent-green: #8bc68a;
+    --font-dm-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --font-instrument-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-instrument-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  html,
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* #3 — CSS :active press scale + hover brighten */
+.press-scale {
+  transition: transform 100ms ease, filter 150ms ease;
+  will-change: transform;
+}
+.press-scale:active {
+  transform: scale(0.97);
+}
+
+/* #10 — Reduced motion: disable all transitions and animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hover-only guard for touch devices */
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift:hover {
+    transform: translateY(-1px);
+  }
+
+  /* Subtle brighten on hover for all interactive press-scale elements */
+  .press-scale:hover {
+    filter: brightness(1.15);
+  }
+  .press-scale:active {
+    filter: brightness(0.95);
+  }
+
+  /* Standalone hover-bright for elements that don't use press-scale */
+  .hover-bright:hover {
+    filter: brightness(1.15);
+  }
 }
