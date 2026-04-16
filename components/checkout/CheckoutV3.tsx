@@ -693,18 +693,18 @@ export default function CheckoutV3({
               <span style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", borderRadius: "50%", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.15)", background: "rgba(255,255,255,0.05)", color: "white" }}><X size={16} /></span>
             </Link>
           </div>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100vh", padding: "120px 48px", maxWidth: "1200px", margin: "0 auto", gap: "80px", position: "relative" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", minHeight: "100vh", padding: "100px 64px", maxWidth: "1280px", margin: "0 auto", gap: "100px", position: "relative" }}>
             <SidebarSwitch variant={sidebarVariant} countdown={countdown} memberCount={memberCount} />
-            <div style={{ flex: 1, maxWidth: "520px" }}>
+            <div style={{ flex: 1, maxWidth: "480px" }}>
               {!isStatic && stepIdx > 0 && !completed && (
-                <button onClick={goBack} className="flex items-center gap-1 mb-10 text-[12px] text-white/60 hover:text-white transition-colors"
+                <button onClick={goBack} className="flex items-center gap-1 mb-8 text-[12px] text-white/60 hover:text-white transition-colors"
                   style={{ fontFamily: monoFont, background: "none", border: "none", cursor: "pointer", minHeight: "40px" }}>
                   <ChevronLeft size={14} /><span>BACK</span>
                 </button>
               )}
               {content}
               {!isStatic && !completed && !(currentStep === "type" && !typeStepRevisited) && (
-                <div style={{ marginTop: "40px" }}>
+                <div style={{ marginTop: "48px" }}>
                   <button onClick={() => canContinue && goForward()} disabled={!canContinue}
                     className="press-scale flex items-center justify-center w-full py-[14px] rounded-[12px]"
                     style={{ ...ctaStyle(canContinue), transition: "all 0.2s ease" }}>

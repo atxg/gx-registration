@@ -167,7 +167,7 @@ function StepInfo({ name, setName, email, setEmail, onEnter }: {
   return (
     <div className="flex flex-col gap-[20px]">
       <QLabel>Let&apos;s get you registered</QLabel>
-      <div className="flex flex-col gap-[12px]">
+      <div className="flex flex-col gap-[20px]">
         <MaterialInput label="Full name" value={name} onChange={setName} autoFocus />
         <MaterialInput label="Email address" value={email} onChange={setEmail} type="email" onEnter={onEnter} />
       </div>
