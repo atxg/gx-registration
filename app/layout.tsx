@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import AgentationWrapper from "@/components/AgentationWrapper";
-
 export const metadata: Metadata = {
   title: "AI + Hardware Buildathon — GrowthX",
   description:
@@ -24,7 +22,6 @@ export default function RootLayout({
         style={{ backgroundColor: "#060606", color: "#ffffff", fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" }}
       >
         {children}
-        <AgentationWrapper />
       </body>
     </html>
   );
