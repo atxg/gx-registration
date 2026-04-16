@@ -353,7 +353,7 @@ export default function CheckoutSimple({ sidebarVariant = "v11" }: { sidebarVari
                     {currentStep === "info" && (
                       <div className="flex flex-col gap-[20px]">
                         <QLabel>What&apos;s your name and email?</QLabel>
-                        <div className="flex flex-col gap-[12px]">
+                        <div className="flex flex-col gap-[20px]">
                           <MaterialInput label="Full name" value={name} onChange={setName} autoFocus />
                           <MaterialInput label="Email address" value={email} onChange={setEmail} type="email" />
                         </div>
