@@ -378,7 +378,7 @@ export default function CheckoutNew({ layout = "card", sidebarVariant = "v11" }:
             <ConfettiCanvas active={completed} />
 
             {/* Progress bar + close */}
-            <div className="absolute left-0 right-0 flex items-center gap-[12px] px-0 lg:px-[16px] pb-[32px] z-10" style={{ top: "40px" }}>
+            <div className="absolute left-0 right-0 flex items-center gap-[12px] px-0 md:px-[16px] pb-[32px] z-10" style={{ top: "40px" }}>
               <div className="relative h-[4px] flex-1 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
                 <div className="absolute inset-y-0 left-0 rounded-full bg-white"
                   style={{ width: `${completed ? 100 : progress}%`, transition: `width 0.4s ${EASE_OUT_QUINT}` }} />

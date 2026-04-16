@@ -371,7 +371,7 @@ export default function CheckoutTeamCode({ sidebarVariant = "v11" }: { sidebarVa
           style={{ minHeight: "450px", padding: "32px 0 16px" }}>
 
           {/* Progress bar row: [back (mobile)] [progress] [close] */}
-          <div className="absolute left-0 right-0 flex items-center gap-[12px] px-0 lg:px-[16px] pb-[32px] z-10" style={{ top: "40px" }}>
+          <div className="absolute left-0 right-0 flex items-center gap-[12px] px-0 md:px-[16px] pb-[32px] z-10" style={{ top: "40px" }}>
             {/* Back icon — mobile only, inline with progress bar */}
             {stepIdx > 0 && !completed && !isFinalScreen ? (
               <button onClick={goBack} className="flex lg:hidden items-center justify-center shrink-0"
